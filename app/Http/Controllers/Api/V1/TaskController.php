@@ -30,4 +30,10 @@ class TaskController extends  Controller
         $task->update($request->validated());
         return TaskResource::make($task);
     }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return response()->json(['message' => 'Task deleted successfully!'], 200);
+    }
 }
